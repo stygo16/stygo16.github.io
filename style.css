@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15+Charted&display=swap');
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #02040a;
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ATMÓSFERA
+========================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(0, 110, 255, 0.12),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(0, 70, 255, 0.08),
+            transparent 25%
+        );
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+
+/* =========================================
+   GRID DIGITAL
+========================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: -100px;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0, 130, 255, 0.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0, 130, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    transform: perspective(500px)
+               rotateX(55deg)
+               translateY(120px)
+               scale(1.5);
+
+    transform-origin: center bottom;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.main-content {
+
+    position: relative;
+
+    width: min(88vw, 620px);
+
+    text-align: center;
+
+    padding: 50px 0;
+}
+
+
+/* =========================================
+   DETALLES DECORATIVOS
+========================================= */
+
+.main-content::before {
+
+    content: "SYS_001";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    color: #1677ff;
+
+    font-size: 10px;
+
+    letter-spacing: 0.2em;
+
+    opacity: 0.6;
+}
+
+
+.main-content::after {
+
+    content: "CREATIVE_CODE / 2026";
+
+    position: absolute;
+
+    bottom: 5px;
+    right: 0;
+
+    color: #1677ff;
+
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.title {
+
+    position: relative;
+
+    margin-bottom: 55px;
+}
+
+
+/* =========================================
+   NOMBRE
+========================================= */
+
+.title h1 {
+
+    font-family: "Jersey 15 Charted", sans-serif;
+
+    font-size: clamp(4rem, 12vw, 7rem);
+
+    font-weight: 400;
+
+    line-height: 0.85;
+
+    letter-spacing: 0.04em;
+
+    color: #f4f8ff;
+
+    text-shadow:
+
+        3px 0 #005cff,
+        -3px 0 rgba(0, 150, 255, 0.25),
+
+        0 0 20px rgba(0, 110, 255, 0.4);
+
+    position: relative;
+
+    animation: floatingTitle 4s ease-in-out infinite;
+}
+
+
+/* Línea azul debajo */
+
+.title h1::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15%;
+    right: 15%;
+
+    bottom: -12px;
+
+    height: 2px;
+
+    background: #0878ff;
+
+    box-shadow:
+        0 0 10px #0878ff,
+        0 0 30px #0878ff;
+
+    transform: scaleX(0.4);
+
+    animation: linePulse 3s ease-in-out infinite;
+}
+
+
+/* =========================================
+   SUBTÍTULO
+========================================= */
+
+.title p {
+
+    margin-top: 30px;
+
+    color: #7ca9df;
+
+    font-size: 11px;
+
+    letter-spacing: 0.35em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   NAVEGACIÓN
+========================================= */
+
+nav ul {
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   PROYECTOS
+========================================= */
+
+.item-list {
+
+    position: relative;
+}
+
+
+/* Línea lateral */
+
+.item-list::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -12px;
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    background: #0878ff;
+
+    box-shadow:
+        0 0 8px #0878ff;
+
+    transform: translateY(-50%);
+
+    opacity: 0.5;
+
+    transition:
+        height 0.4s ease,
+        opacity 0.4s ease;
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+.item-list a {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    height: 70px;
+
+    padding: 0 25px;
+
+    color: #b8d7ff;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(0, 110, 255, 0.3);
+
+    background: rgba(3, 12, 25, 0.65);
+
+    backdrop-filter: blur(5px);
+
+    font-size: 12px;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        border-color 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease;
+}
+
+
+/* =========================================
+   NÚMERO DEL PROYECTO
+========================================= */
+
+.item-list a::before {
+
+    content: "0" counter(project);
+
+    counter-increment: project;
+
+    color: #0878ff;
+
+    font-size: 10px;
+
+    letter-spacing: 0.1em;
+
+    opacity: 0.7;
+}
+
+
+/* Activamos contador */
+
+nav ul {
+    counter-reset: project;
+}
+
+
+/* =========================================
+   BARRA DE ENERGÍA
+========================================= */
+
+.item-list a::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 0%;
+    height: 2px;
+
+    background: #0878ff;
+
+    box-shadow:
+        0 0 10px #0878ff,
+        0 0 20px rgba(0, 110, 255, 0.7);
+
+    transition: width 0.5s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.item-list a:hover {
+
+    transform:
+        translateX(12px)
+        scale(1.02);
+
+    color: white;
+
+    border-color: #0878ff;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 70, 180, 0.15),
+            rgba(0, 110, 255, 0.05)
+        );
+
+    box-shadow:
+
+        -8px 0 0 rgba(0, 110, 255, 0.05),
+
+        0 0 25px rgba(0, 100, 255, 0.12);
+}
+
+
+.item-list a:hover::after {
+
+    width: 100%;
+}
+
+
+.item-list:hover::before {
+
+    height: 70%;
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   CLICK
+========================================= */
+
+.item-list a:active {
+
+    transform:
+        translateX(8px)
+        scale(0.98);
+}
+
+
+/* =========================================
+   EFECTO GLITCH DEL NOMBRE
+========================================= */
+
+@keyframes floatingTitle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+
+@keyframes linePulse {
+
+    0%,
+    100% {
+        transform: scaleX(0.4);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .main-content {
+
+        width: 82vw;
+
+        padding: 40px 0;
+    }
+
+    .title h1 {
+
+        font-size: 18vw;
+    }
+
+    .title p {
+
+        font-size: 9px;
+
+        letter-spacing: 0.2em;
+    }
+
+    .item-list a {
+
+        height: 62px;
+
+        font-size: 10px;
+
+        letter-spacing: 0.14em;
+    }
+
+    .main-content::after {
+
+        display: none;
+    }
+}
