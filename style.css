@@ -420,3 +420,9 @@ nav ul {
         scroll-behavior: auto !important;
     }
 }
+
+.title h1 {
+    white-space: nowrap;
+    width: max-content;
+    max-width: none;
+}
